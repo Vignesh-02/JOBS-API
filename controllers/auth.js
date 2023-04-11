@@ -5,8 +5,7 @@ require('dotenv').config()
 
 const register = async(req,res) => {
     const user = await User.create({ ...req.body })
-    const token = await user.createJWT()
-    res.status(StatusCodes.CREATED).json({ user : {name : user.name}, token })
+    res.status(StatusCodes.CREATED).json({ user : {name : user.name} })
 }
 
 const login = async(req,res) => {
